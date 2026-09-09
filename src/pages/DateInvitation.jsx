@@ -171,12 +171,14 @@ export const DateInvitation = () => {
               )}
 
               {/* Interactive YES & Moving NO Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-2 sm:pt-4 relative min-h-[130px] w-full max-w-full">
-                <LoveButton onClick={handleSelectYes}>
+              <div className="flex flex-row items-center justify-center gap-4 sm:gap-6 pt-2 sm:pt-4 relative min-h-[130px] w-full">
+                <LoveButton onClick={handleSelectYes} className="z-20 min-w-[140px]">
                   YES ❤️
                 </LoveButton>
 
-                <MovingNoButton />
+                <div className="relative z-10 w-[140px] flex justify-center">
+                  <MovingNoButton />
+                </div>
               </div>
             </motion.div>
           )}

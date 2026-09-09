@@ -63,7 +63,7 @@ export const AudioPlayer = () => {
 
   return (
     <div className="fixed bottom-4 right-4 z-40">
-      <audio ref={audioRef} src={audioUrl} loop preload="auto" />
+      <audio ref={audioRef} src={audioUrl} autoPlay loop preload="auto" />
       <button
         onClick={toggleMusic}
         className={`flex items-center gap-2 px-3.5 py-2 rounded-full backdrop-blur-md text-xs font-semibold border transition-all shadow-lg cursor-pointer ${
