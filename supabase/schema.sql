@@ -22,29 +22,20 @@ CREATE INDEX IF NOT EXISTS idx_date_invitations_code ON public.date_invitations(
 -- 2. Enable Row Level Security (RLS)
 ALTER TABLE public.date_invitations ENABLE ROW LEVEL SECURITY;
 
--- 3. RLS Policies
+-- 3. Drop all old policies to prevent "already exists" errors
+DROP POLICY IF EXISTS "Public Read Access by Invite Code" ON public.date_invitations;
+DROP POLICY IF EXISTS "Public Update Response Access" ON public.date_invitations;
+DROP POLICY IF EXISTS "Admin Full Access" ON public.date_invitations;
+DROP POLICY IF EXISTS "Public Full Access" ON public.date_invitations;
 
--- Policy A: Anyone can READ an invitation by invite_code
-CREATE POLICY "Public Read Access by Invite Code" 
-ON public.date_invitations 
-FOR SELECT 
-USING (true);
-
--- Policy B: Recipient can UPDATE their response & selections
-CREATE POLICY "Public Update Response Access" 
-ON public.date_invitations 
-FOR UPDATE 
-USING (true)
-WITH CHECK (true);
-
--- Policy C: Allow all operations for this personal app
+-- 4. Create one unified RLS Policy for this personal app
 CREATE POLICY "Public Full Access" 
 ON public.date_invitations 
 FOR ALL 
 USING (true) 
 WITH CHECK (true);
 
--- 4. Seed initial default invitation record for demo
+-- 5. Seed initial default invitation record for demo
 INSERT INTO public.date_invitations (invite_code, recipient_name, sender_name, status)
 VALUES ('demo-love-2026', 'My Love', 'Suraj', 'pending')
 ON CONFLICT (invite_code) DO NOTHING;
