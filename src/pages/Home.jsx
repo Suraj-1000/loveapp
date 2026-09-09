@@ -70,6 +70,7 @@ export const Home = () => {
                 <label className="block text-xs font-semibold text-slate-300 mb-1">Your Name</label>
                 <input
                   type="text"
+                  required
                   placeholder="e.g. Suraj"
                   value={senderName}
                   onChange={(e) => setSenderName(e.target.value)}
@@ -81,6 +82,7 @@ export const Home = () => {
                 <label className="block text-xs font-semibold text-slate-300 mb-1">Her Name</label>
                 <input
                   type="text"
+                  required
                   placeholder="e.g. My Love"
                   value={recipientName}
                   onChange={(e) => setRecipientName(e.target.value)}
