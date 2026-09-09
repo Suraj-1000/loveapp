@@ -263,15 +263,7 @@ export const DateInvitation = () => {
         )}
       </StepModal>
 
-      {/* Footer Link for Admin */}
-      <footer className="relative z-10 mt-6 text-center">
-        <Link
-          to="/admin"
-          className="inline-flex items-center gap-1.5 text-[11px] text-slate-500 hover:text-rose-400 transition-colors py-1 px-3 rounded-full hover:bg-slate-900/60"
-        >
-          <Lock className="w-3 h-3" /> Admin Dashboard
-        </Link>
-      </footer>
+
     </div>
   );
 };
