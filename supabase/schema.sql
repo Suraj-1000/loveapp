@@ -37,11 +37,10 @@ FOR UPDATE
 USING (true)
 WITH CHECK (true);
 
--- Policy C: Authenticated Admin user full control (INSERT, UPDATE, DELETE)
-CREATE POLICY "Admin Full Access" 
+-- Policy C: Allow all operations for this personal app
+CREATE POLICY "Public Full Access" 
 ON public.date_invitations 
 FOR ALL 
-TO authenticated 
 USING (true) 
 WITH CHECK (true);
 
